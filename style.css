@@ -1,0 +1,340 @@
+* {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 1;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    margin: 0;
+    background-color: #f1f9f9;
+}
+
+.gd {
+    display: grid;
+}
+
+#container {
+    width: 600px;
+    margin: 80px auto;
+    counter-reset: button-counter;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.toggle-button-container {
+    position: relative;
+    width: 200px;
+    height: 140px;
+    box-sizing: border-box;
+}
+
+.toggle-button {
+    position: relative;
+    height: 100px;
+    margin: 20px;
+    background-color: #fff;
+    box-shadow: 0px 10px 20px -8px #c5d6d6;
+    border-radius: 4px;
+}
+
+.toggle-button:before {
+    counter-increment: button-counter;
+    content: counter(button-counter);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: #d7e3e3;
+    font-size: 12px;
+    line-height: 1;
+    padding: 5px;
+}
+
+.knob,
+.btn-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.btn {
+    position: relative;
+    top: 50%;
+    width: 76px;
+    height: 36px;
+    margin: -20px auto 0 auto;
+    overflow: hidden;
+}
+
+.btn.btn-pill,
+.btn.btn-pill > .btn-bg {
+    border-radius: 100px;
+}
+
+.btn.btn-rect {
+    border-radius: 2px;
+}
+
+.checkbox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    z-index: 3;
+}
+
+.knob {
+    z-index: 2;
+}
+
+.btn-bg {
+    width: 100%;
+    background-color: #ebf7fc;
+    transition: 0.3s ease all;
+    z-index: 1;
+}
+
+
+
+/* Button 1 */
+#button-1 .knob:before {
+    content: "YES";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 20px;
+    height: 10px;
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1;
+    padding: 9px 4px;
+    background-color: #03a9f4;
+    border-radius: 50%;
+    transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+}
+
+#button-1 .checkbox:checked + .knob:before {
+    content: "NO";
+    left: 42px;
+    background-color: #f44336;
+}
+
+#button-1 .checkbox:checked ~ .btn-bg {
+    background-color: #fcebeb;
+}
+
+#button-1 .knob,
+#button-1 .knob:before,
+#button-1 .btn-bg {
+    transition: 0.3s ease all;
+}
+
+
+
+
+/* Button 2 */
+#button-2 .knob:before,
+#button-2 .knob:after {
+    content: "YES";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 20px;
+    height: 10px;
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1;
+    padding: 9px 4px;
+    background-color: #03a9f4;
+    border-radius: 50%;
+    transition: 0.3s ease all;
+}
+
+#button-2 .knob:before {
+    content: "YES";
+}
+
+#button-2 .knob:after {
+    content: "NO";
+}
+
+#button-2 .knob:after {
+    right: -28px;
+    left: auto;
+    background-color: #f44336;
+}
+
+#button-2 .checkbox:checked + .knob:before {
+    left: -28px;
+}
+
+#button-2 .checkbox:checked + .knob:after {
+    right: 4px;
+}
+
+#button-2 .checkbox:checked ~ .btn-bg {
+    background-color: #fcebeb;
+}
+
+
+
+/* Button 3 */
+#button-3 .knob:before {
+    content: "YES";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 20px;
+    height: 10px;
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1;
+    padding: 9px 4px;
+    background-color: #03a9f4;
+    border-radius: 50%;
+    transition: 0.3s ease all left 0.3s
+    cubic-bezier(0.18, 0.89, 0.35, 1.15);
+}
+
+#button-3 .checkbox:active + .knob:before {
+    width: 46px;
+    border-radius: 100px;
+}
+
+#button-3 .checkbox:checked:active + .knob:before {
+    margin-left: -26px;
+}
+
+#button-3 .checkbox:checked + .knob:before {
+    content: "NO";
+    left: 42px;
+    background-color: #f44336;
+}
+
+#button-3 .checkbox:checked  ~ .btn-bg {
+    background-color: #fcebeb;
+}
+
+
+/* Button 4 */
+#button-4 .knob:before,
+#button-4 .knob:after {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 20px;
+    height: 10px;
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1;
+    padding: 9px 4px;
+    background-color: #03a9f4;
+    border-radius: 50%;
+    transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+}
+
+#button-4 .knob:before {
+    content: "YES";
+}
+
+#button-4 .knob:after {
+    content: "NO";
+}
+
+#button-4 .knob:after {
+    top: -28px;
+    right: 4px;
+    left: auto;
+    background-color: #f44336;
+}
+
+#button-4 .checkbox:checked + .knob::before {
+    top: -28px;
+}
+
+#button-4 .checkbox:checked + .knob::after {
+    top: 4px;
+}
+
+#button-4 .checkbox:checked ~ .btn-bg {
+    background-color: #fcebeb;
+}
+
+
+
+/* Button 5 */
+#button-5 {
+    perspective: 60px;
+    overflow: visible;
+}
+
+#button-5 .knob:before,
+#button-5 .knob span {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 20px;
+    height: 10px;
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1;
+    padding: 9px 4px;
+    border-radius: 50px;
+    transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+}
+
+#button-5 .knob:before {
+      background-color: #03a9f4;
+}
+
+#button-5 .knob span:before {
+    content: "YES";
+}
+
+#button-5 .knob::before,
+#button-5 .btn-bg {
+    transform: rotateY(0deg);
+    transform-origin: center;
+}
+
+#button-5 .checkbox:checked + .knob:before,
+#button-5 .checkbox:checked +.knob span {
+    left: 42px;
+}
+
+#button-5 .checkbox:checked + .knob:before {
+    transform: rotateY(180deg);
+    background-color: #f44336;
+}
+
+#button-5 .checkbox:checked + .knob:before {
+    content: "NO";
+    left: 42px;
+}
+
+#button-5 .checkbox:checked ~ .btn-bg {
+    background-color: #fcebeb;
+    transform: rotateY(-180deg);
+}
+
+#button-5 .knob,
+#button-5 .knob:before,
+#button-5 .btn-bg {
+    transition: 0.3s ease all;
+}
